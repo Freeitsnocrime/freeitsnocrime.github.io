@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>freelance.caveman</title>
+  
+  <subtitle>freelance.caveman</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="freeitsnocrime.github.io/"/>
+  <updated>2019-04-18T18:30:56.654Z</updated>
+  <id>freeitsnocrime.github.io/</id>
+  
+  <author>
+    <name>.caveman</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS7 安装Docker-ce</title>
+    <link href="freeitsnocrime.github.io/2019/03/21/centos7-install-docker-ce/"/>
+    <id>freeitsnocrime.github.io/2019/03/21/centos7-install-docker-ce/</id>
+    <published>2019-03-21T15:02:00.000Z</published>
+    <updated>2019-04-18T18:30:56.654Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;CentOS7-安装Docker-ce&quot;&gt;&lt;a href=&quot;#CentOS7-安装Docker-ce&quot; class=&quot;headerlink&quot; title=&quot;CentOS7 安装Docker-ce&quot;&gt;&lt;/a&gt;CentOS7
+        
+      
+    
+    </summary>
+    
+      <category term="docker" scheme="freeitsnocrime.github.io/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="freeitsnocrime.github.io/tags/docker/"/>
+    
+      <category term="kubernetes" scheme="freeitsnocrime.github.io/tags/kubernetes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tomcat8配置APR模式</title>
+    <link href="freeitsnocrime.github.io/2018/12/14/tomcat-apr/"/>
+    <id>freeitsnocrime.github.io/2018/12/14/tomcat-apr/</id>
+    <published>2018-12-14T11:47:00.000Z</published>
+    <updated>2019-04-18T18:30:56.701Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;tomcat三种模式&quot;&gt;&lt;a href=&quot;#tomcat三种模式&quot; class=&quot;headerlink&quot; title=&quot;tomcat三种模式&quot;&gt;&lt;/a&gt;tomcat三种模式&lt;/h3&gt;&lt;p&gt;Tomcat
+        
+      
+    
+    </summary>
+    
+      <category term="web" scheme="freeitsnocrime.github.io/categories/web/"/>
+    
+    
+      <category term="tomcat" scheme="freeitsnocrime.github.io/tags/tomcat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gitlab-CE社区版安装</title>
+    <link href="freeitsnocrime.github.io/2018/11/29/install-gitlab-ce/"/>
+    <id>freeitsnocrime.github.io/2018/11/29/install-gitlab-ce/</id>
+    <published>2018-11-29T10:30:00.000Z</published>
+    <updated>2019-04-18T18:30:56.686Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;常见的git环境有git web版和gitolite版本，gitolite权限控制强大，但功能不完善，而git web(gitlab)虽然权限没有像gitolite分的那么细，但是功能异常强大，不仅支持SSH
+        
+      
+    
+    </summary>
+    
+      <category term="CI/CD" scheme="freeitsnocrime.github.io/categories/CI-CD/"/>
+    
+    
+      <category term="git" scheme="freeitsnocrime.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql状态信息查询</title>
+    <link href="freeitsnocrime.github.io/2018/10/22/mysql-status/"/>
+    <id>freeitsnocrime.github.io/2018/10/22/mysql-status/</id>
+    <published>2018-10-22T14:47:00.000Z</published>
+    <updated>2019-04-18T18:30:56.701Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Mysql在安装运行后，其性能并不一定为实际需要的性能，因此我们常常会在mysql运行一段时间后进行mysql的性能状态查询来了解mysql服务器的性能指标，从而来优化mysql。&lt;/p&gt;
+&lt;h3 id=&quot;查看mysql性能状态命令&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="SQL" scheme="freeitsnocrime.github.io/categories/SQL/"/>
+    
+    
+      <category term="mysql" scheme="freeitsnocrime.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zabbix服务器监控之《配置Zabbix报警》（六）</title>
+    <link href="freeitsnocrime.github.io/2018/09/13/zabbox-alert/"/>
+    <id>freeitsnocrime.github.io/2018/09/13/zabbox-alert/</id>
+    <published>2018-09-13T09:30:00.000Z</published>
+    <updated>2019-04-18T18:30:56.732Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://www.ipyker.com/2018/09/13/zabbix-trigger/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;上一篇&lt;/a&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="Tools" scheme="freeitsnocrime.github.io/categories/Tools/"/>
+    
+    
+      <category term="zabbix" scheme="freeitsnocrime.github.io/tags/zabbix/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zabbix服务器监控之《配置Zabbix触发器》（五）</title>
+    <link href="freeitsnocrime.github.io/2018/09/13/zabbix-trigger/"/>
+    <id>freeitsnocrime.github.io/2018/09/13/zabbix-trigger/</id>
+    <published>2018-09-13T04:30:00.000Z</published>
+    <updated>2019-04-18T18:30:56.717Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://www.ipyker.com/2018/09/12/zabbix-item/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;上一篇&lt;/a&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="Tools" scheme="freeitsnocrime.github.io/categories/Tools/"/>
+    
+    
+      <category term="zabbix" scheme="freeitsnocrime.github.io/tags/zabbix/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zabbix服务器监控之《配置Zabbix监控项》（四）</title>
+    <link href="freeitsnocrime.github.io/2018/09/12/zabbix-item/"/>
+    <id>freeitsnocrime.github.io/2018/09/12/zabbix-item/</id>
+    <published>2018-09-12T13:10:00.000Z</published>
+    <updated>2019-04-18T18:30:56.701Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;通过&lt;a href=&quot;https://www.ipyker.com/2018/09/11/zabbix-agent/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;上一篇&lt;/a&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="Tools" scheme="freeitsnocrime.github.io/categories/Tools/"/>
+    
+    
+      <category term="zabbix" scheme="freeitsnocrime.github.io/tags/zabbix/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zabbix服务器监控之《安装Zabbix Agent》（三）</title>
+    <link href="freeitsnocrime.github.io/2018/09/11/zabbix-agent/"/>
+    <id>freeitsnocrime.github.io/2018/09/11/zabbix-agent/</id>
+    <published>2018-09-11T07:51:30.000Z</published>
+    <updated>2019-04-18T18:30:56.701Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://www.ipyker.com/2018/09/11/zabbix-server/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;上一篇&lt;/a&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="Tools" scheme="freeitsnocrime.github.io/categories/Tools/"/>
+    
+    
+      <category term="zabbix" scheme="freeitsnocrime.github.io/tags/zabbix/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zabbix服务器监控之《安装Zabbix Server》（二）</title>
+    <link href="freeitsnocrime.github.io/2018/09/11/zabbix-server/"/>
+    <id>freeitsnocrime.github.io/2018/09/11/zabbix-server/</id>
+    <published>2018-09-11T06:47:00.000Z</published>
+    <updated>2019-04-18T18:30:56.717Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://www.ipyker.com/2018/09/11/zabbix-summarize/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;上一篇&lt;/a&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="Tools" scheme="freeitsnocrime.github.io/categories/Tools/"/>
+    
+    
+      <category term="zabbix" scheme="freeitsnocrime.github.io/tags/zabbix/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zabbix服务器监控之《初识zabbix概念》（一）</title>
+    <link href="freeitsnocrime.github.io/2018/09/11/zabbix-summarize/"/>
+    <id>freeitsnocrime.github.io/2018/09/11/zabbix-summarize/</id>
+    <published>2018-09-11T05:27:00.000Z</published>
+    <updated>2019-04-18T18:30:56.717Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;为什么要用Zabbix&quot;&gt;&lt;a href=&quot;#为什么要用Zabbix&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Tools" scheme="freeitsnocrime.github.io/categories/Tools/"/>
+    
+    
+      <category term="zabbix" scheme="freeitsnocrime.github.io/tags/zabbix/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿里云ECS用465端口发邮件</title>
+    <link href="freeitsnocrime.github.io/2018/03/25/aliyun-ecs-mail/"/>
+    <id>freeitsnocrime.github.io/2018/03/25/aliyun-ecs-mail/</id>
+    <published>2018-03-25T15:32:00.000Z</published>
+    <updated>2019-04-18T18:30:56.670Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;原由&quot;&gt;&lt;a href=&quot;#原由&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="freeitsnocrime.github.io/categories/Linux/"/>
+    
+    
+      <category term="aliyun" scheme="freeitsnocrime.github.io/tags/aliyun/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ansible 常用模块指令</title>
+    <link href="freeitsnocrime.github.io/2018/03/22/ansible-module/"/>
+    <id>freeitsnocrime.github.io/2018/03/22/ansible-module/</id>
+    <published>2018-03-22T07:47:00.000Z</published>
+    <updated>2019-04-18T18:30:56.670Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;本文主要讲解ansible的常用命令和简单安装步骤，具体配置文件详解以及playbook暂未涉及！后续更新。。。。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;安装Ansible&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="CI/CD" scheme="freeitsnocrime.github.io/categories/CI-CD/"/>
+    
+    
+      <category term="ansible" scheme="freeitsnocrime.github.io/tags/ansible/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx内置变量</title>
+    <link href="freeitsnocrime.github.io/2018/01/23/nginx-variable/"/>
+    <id>freeitsnocrime.github.io/2018/01/23/nginx-variable/</id>
+    <published>2018-01-23T14:18:00.000Z</published>
+    <updated>2019-04-18T18:30:56.701Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Nginx-内置变量解释&quot;&gt;&lt;a href=&quot;#Nginx-内置变量解释&quot; class=&quot;headerlink&quot; title=&quot;Nginx 内置变量解释&quot;&gt;&lt;/a&gt;Nginx
+        
+      
+    
+    </summary>
+    
+      <category term="web" scheme="freeitsnocrime.github.io/categories/web/"/>
+    
+    
+      <category term="nginx" scheme="freeitsnocrime.github.io/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>详解nginx之location误区</title>
+    <link href="freeitsnocrime.github.io/2018/01/23/nginx-location/"/>
+    <id>freeitsnocrime.github.io/2018/01/23/nginx-location/</id>
+    <published>2018-01-23T11:47:00.000Z</published>
+    <updated>2019-04-18T18:30:56.670Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;location-的匹配顺序是“先匹配正则，再匹配普通”。&quot;&gt;&lt;a href=&quot;#location-的匹配顺序是“先匹配正则，再匹配普通”。&quot; class=&quot;headerlink&quot; title=&quot;location
+        
+      
+    
+    </summary>
+    
+      <category term="web" scheme="freeitsnocrime.github.io/categories/web/"/>
+    
+    
+      <category term="nginx" scheme="freeitsnocrime.github.io/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP请求头响应头字段详解</title>
+    <link href="freeitsnocrime.github.io/2017/12/26/http-header/"/>
+    <id>freeitsnocrime.github.io/2017/12/26/http-header/</id>
+    <published>2017-12-26T06:15:00.000Z</published>
+    <updated>2019-04-18T18:30:56.686Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;HTTP消息头是指，在超文本传输协议（ Hypertext Transfer Protocol ，HTTP）的请求和响应消息中，协议头部分的那些组件。HTTP消息头用来准确描述正在获取的资源、服务器或者客户端的行为，定义了HTTP事务中的具体操作参数。&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+      <category term="web" scheme="freeitsnocrime.github.io/categories/web/"/>
+    
+    
+      <category term="https" scheme="freeitsnocrime.github.io/tags/https/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS7 内核参数详解</title>
+    <link href="freeitsnocrime.github.io/2017/11/21/centos-kernel-analysis/"/>
+    <id>freeitsnocrime.github.io/2017/11/21/centos-kernel-analysis/</id>
+    <published>2017-11-21T16:47:00.000Z</published>
+    <updated>2019-04-18T18:30:56.670Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;sysctl-conf-配置参数详解&quot;&gt;&lt;a href=&quot;#sysctl-conf-配置参数详解&quot; class=&quot;headerlink&quot; title=&quot;sysctl.conf 配置参数详解&quot;&gt;&lt;/a&gt;sysctl.conf
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="freeitsnocrime.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="freeitsnocrime.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>https证书加密解密原理解析</title>
+    <link href="freeitsnocrime.github.io/2017/10/26/https-tls/"/>
+    <id>freeitsnocrime.github.io/2017/10/26/https-tls/</id>
+    <published>2017-10-26T07:15:00.000Z</published>
+    <updated>2019-04-18T18:30:56.686Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;我们都知道HTTPS能够加密信息，以免敏感信息被第三方获取。所以很多银行网站或电子邮箱等等安全级别较高的服务都会采用HTTPS协议。而HTTPS可以看作是安全的HTTP，你可能听说过关于HTTPS的一些问题，比如什么握手，什么证书，加密之类的等等。&lt;br&gt;HTTPS为何能保
+        
+      
+    
+    </summary>
+    
+      <category term="web" scheme="freeitsnocrime.github.io/categories/web/"/>
+    
+    
+      <category term="https" scheme="freeitsnocrime.github.io/tags/https/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown格式书写</title>
+    <link href="freeitsnocrime.github.io/2017/07/23/markdown-format/"/>
+    <id>freeitsnocrime.github.io/2017/07/23/markdown-format/</id>
+    <published>2017-07-23T03:20:00.000Z</published>
+    <updated>2019-04-18T18:30:56.686Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;区块元素&quot;&gt;&lt;a href=&quot;#区块元素&quot; class=&quot;headerlink&quot; title=&quot;区块元素&quot;&gt;&lt;/a&gt;区块元素&lt;/h2&gt;&lt;h3 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Tools" scheme="freeitsnocrime.github.io/categories/Tools/"/>
+    
+    
+      <category term="markdown" scheme="freeitsnocrime.github.io/tags/markdown/"/>
+    
+  </entry>
+  
+</feed>

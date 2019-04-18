@@ -1,0 +1,1289 @@
+<!DOCTYPE HTML>
+<html lang="default">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Ansible 常用模块指令, freelance.caveman">
+    <meta name="description" content="
+本文主要讲解ansible的常用命令和简单安装步骤，具体配置文件详解以及playbook暂未涉及！后续更新。。。。
+
+安装Ansible$ yum install epel-release ansible -y
+
+配置文件配置
+ansib">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Ansible 常用模块指令 | freelance.caveman</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">freelance.caveman</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">freelance.caveman</div>
+        <div class="logo-desc">
+            
+            freeitsnocrime
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/bar/ansible.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Ansible 常用模块指令
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ansible/" target="_blank">
+                                <span class="chip bg-color">ansible</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/CI-CD/" class="post-category" target="_blank">
+                                CI/CD
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-03-22
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        2.5k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        10 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><strong>本文主要讲解ansible的常用命令和简单安装步骤，具体配置文件详解以及playbook暂未涉及！后续更新。。。。</strong></p>
+</blockquote>
+<h3 id="安装Ansible"><a href="#安装Ansible" class="headerlink" title="安装Ansible"></a>安装Ansible</h3><pre class=" language-bash"><code class="language-bash">$ yum <span class="token function">install</span> epel-release ansible -y
+</code></pre>
+<h3 id="配置文件配置"><a href="#配置文件配置" class="headerlink" title="配置文件配置"></a>配置文件配置</h3><ul>
+<li>ansible.cfg文件<br>（主要设置一些ansible初始化的信息，比如日志存放路径、用户、模块、插件等配置信息）<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cat</span> /etc/ansible/ansible.cfg 
+<span class="token punctuation">[</span>defaults<span class="token punctuation">]</span>
+inventory <span class="token operator">=</span> /etc/ansible/hosts
+library <span class="token operator">=</span> /usr/share/ansible
+sudo_user <span class="token operator">=</span> root  <span class="token punctuation">(</span>默认远程执行命令的用户<span class="token punctuation">)</span>
+remote_port <span class="token operator">=</span> 22
+fork <span class="token operator">=</span> 5
+host_key_checking <span class="token operator">=</span> False
+log_path <span class="token operator">=</span> /var/log/ansible.log
+module_name <span class="token operator">=</span> <span class="token function">command</span>
+roles_path <span class="token operator">=</span> /etc/ansible/roles
+deprecation_warnings <span class="token operator">=</span> False
+</code></pre>
+</li>
+<li>hosts 文件<br>（机器清单，进行分组管理）<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>tomcat<span class="token punctuation">]</span>
+192.168.16.192
+192.168.16.193
+<span class="token punctuation">[</span>nginx<span class="token punctuation">]</span>
+app1 ansible_ssh_host<span class="token operator">=</span>192.168.16.190 ansible_ssh_pass<span class="token operator">=</span><span class="token string">"2039"</span>
+app2 ansible_ssh_host<span class="token operator">=</span>192.168.16.191 sudo_user<span class="token operator">=</span>”ald” ansible_ssh_pass<span class="token operator">=</span><span class="token string">"2039"</span>
+</code></pre>
+<blockquote>
+<p><em>sudo_user和ansible_ssh_pass为帐号密码方式验证，建议用密钥。</em></p>
+</blockquote>
+<h3 id="Ansible指令参数"><a href="#Ansible指令参数" class="headerlink" title="Ansible指令参数"></a>Ansible指令参数</h3></li>
+<li><p><strong>ansible 常用命令参数</strong><br>-m指定模块<br>-a 指定模块的命令。默认是command模块，可以省略<br>-B 指定ansible后台运行超时时间<br>-C 测试运行效果，而不是正在运行<br>-f 指定使用的并行进程的数量<br>-i 指定inventory/hosts文件，默认/etc/ansiable/hosts文件<br>–limit=xxx.xxx.xxx.xxx 限制对某个ip或者网段或者组执行<br>–list-hosts 显示将要执行命令的主机</p>
+</li>
+<li><p><strong>ansible-doc 常用命令参数</strong><br>-M –module-path=/xxx/xxx  查询模块 默认是/usr/share/ansible/<br>-l  –list          显示已存在的所有模块<br>-s  command     显示playbook制定模块的用法，类似 man 命令</p>
+</li>
+<li><p><strong>ansible-galaxy</strong> </p>
+<blockquote>
+<p>下载第三方模块指令，类似yum、pip、easy_install这样的命令</p>
+</blockquote>
+<p> ansible-galaxy install &lt;module_name&gt;</p>
+</li>
+<li><p><strong>ansible-playbook</strong> 常用命令参数<br>–syntax-check  [yaml文件]         语法检测<br>-t TAGS    只允许指定的tags标签任务，多个以 , 分开<br>–skip-tags=SKIP_TAGS   跳过指定的标签<br>–start-at-task=START_AT   从哪个任务后执行</p>
+</li>
+</ul>
+<h3 id="常用指令模块"><a href="#常用指令模块" class="headerlink" title="常用指令模块"></a>常用指令模块</h3><p>1、 copy——拷贝模块   (用于将本地或远程机器上的文件拷贝到远程主机上)</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible all –m copy -a “src<span class="token operator">=</span>/xxx/xxx dest<span class="token operator">=</span>/yyy/yyy owner<span class="token operator">=</span>root group<span class="token operator">=</span>root mode<span class="token operator">=</span>644 force<span class="token operator">=</span>yes/no backup<span class="token operator">=</span>yes/no”
+解释：将src 文件/目录复制到远程dest上，所有者/组为root 权限为644，force为是否强制替换，backup为替换前是否需要备份远程远文件
+</code></pre>
+<p>2、 raw——命令模块 （和command、shell类似）</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible all –m raw -a <span class="token string">"ifconfig"</span>
+解释：在所有主机上执行ifocnfig命令。
+</code></pre>
+<p>3、 yum——安装模块 （安装程序）</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible all –m yum –a “name<span class="token operator">=</span>httpd state<span class="token operator">=</span>present”
+解释：安装httpd程序，state可以是present、latest、installed表示安装程序，absent、removed表示卸载程序
+</code></pre>
+<p>4、 file——文件模块 （文件属性修改）</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible all –m <span class="token function">file</span> –a “src<span class="token operator">=</span>/xxx/xxx/1 dest<span class="token operator">=</span>/yyy/1 state<span class="token operator">=</span>link owner<span class="token operator">=</span>alad group<span class="token operator">=</span>alad mode<span class="token operator">=</span>777”
+$ ansible develop -m <span class="token function">file</span> -a <span class="token string">"path=/xxx/dir recurse=yes owner=root group=alad mode=644"</span>
+解释：1、将src的文件软连接到dest目录下，并修改所有者/组和权限
+      2、将path路径的目录递归形式设置所有者和权限
+*、state还可以是directory：如果目录不存在，创建目录
+    file：即使文件不存在，也不会被创建
+    hard：创建硬链接
+    touch：如果文件不存在，则会创建一个新的文件，如果文件或目录已存在，则更新其最后修改时间
+    absent：删除目录、文件或者取消链接文件
+</code></pre>
+<p>5、 cron——计划任务模块 （计划任务crontab）</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible develop -m <span class="token function">cron</span> -a <span class="token string">"name='show time' minute=*/1 hour=* day=* month=* weekday=* job='/bin/date'"</span>
+$ ansible develop -m <span class="token function">cron</span> -a <span class="token string">"name='show time' state=absent"</span>
+解释：1、创建一个每分钟显示时间的计划任务
+      2、删除名为show time这个计划任务
+</code></pre>
+<p>6、 group——组模块（用户组）</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible all-m group -a <span class="token string">"name=develop"</span>
+解释：在所有主机上创建一个develop的组 ，state<span class="token operator">=</span>absent表示删除该组
+</code></pre>
+<p>7、 user——用户模块（用户）</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible develop -m user -a <span class="token string">"name=harlan groups=root password=-1vFO89dP6qyK"</span>
+$ ansible develop -m user -a <span class="token string">"name=harlan state=absent remove=yes"</span>
+解释：1、在所有主机上创建harlan用户，并将其添加到root组，密码是经过hash加密后的，明文密码会被哈希，所以先填入hash后的密码即可
+可用此命令hash密码  openssl <span class="token function">passwd</span> -salt -1 <span class="token string">"123456"</span>
+      2、删除harlan用户。Remove表示是否删除用户的同时删除家目录
+</code></pre>
+<p>8、 service——服务模块（服务状态）</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible develop -m <span class="token function">service</span> -a <span class="token string">"name=nginx state=running"</span>
+$ ansible develop -m <span class="token function">service</span> -a <span class="token string">"name=nginx state=restarted enabled=yes"</span>
+解释：1、无论服务处在什么状态，最后都是将服务状态设置为启动，当服务正在运行的时候，显示为changed为false，state显示为状态，表示为正在运行；当服务停止的时候，显示为changed为true，表示这个时候将服务进行了启动，状态为启动
+      2、表示重启nginx并且将nginx设置为开机自启动，state还有staeted、reloaded、stoped值
+</code></pre>
+<p>9、 script——脚本模块（运行脚本）</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible develop -m script -a <span class="token string">"/root/a.sh"</span>
+解释：在develop主机上运行当前服务器上的a.sh脚本
+</code></pre>
+<p>10、get_url——下载url上指定文件（类似wget）</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible develop -m get_url -a <span class="token string">"url=http://file.alavening.com/alading_file/head_img/1526900421976.jpg dest=/home/ owner=alad group=alad mode=644"</span>
+解释：将url上的图片下载到dest目的目录上,并且设置相应的所有者/组和权限。
+</code></pre>
+<p>11、synchronize——同步目录（默认推送，mode=pull为拉取）</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible develop -m synchronize -a <span class="token string">"src=/home/test/ dest=/home/test compress=yes delete=yes"</span>
+$ ansible develop -m synchronize -a <span class="token string">"src=/home/test/ dest=/home/test compress=yes mode=pull"</span>
+解释：1、将src下的文件同步到dest上，delete<span class="token operator">=</span>yes表示以src 目录为准镜像同步。
+      2、拉取远程src上的目录文件到本地dest上
+</code></pre>
+<p>12、template——文档内变量的替换的模块</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible develop –m template –a ‘src<span class="token operator">=</span>/mytemplates/foo.j2 dest<span class="token operator">=</span>/etc/file.conf mode<span class="token operator">=</span><span class="token string">"u=rw,g=r,o=r"</span>’
+解释：将src上foo.j2的变量模版复制到dest上。Template适合用playbook编写 ，通过变量然后拷贝到远程主机。
+</code></pre>
+<blockquote>
+<p>可以参考：<a href="https://www.cnblogs.com/jsonhc/p/7895399.html" target="_blank" rel="noopener">https://www.cnblogs.com/jsonhc/p/7895399.html</a></p>
+</blockquote>
+<p>13、fetch——从远程主机下载文件（不能拉取目录）</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible develop -m fetch -a <span class="token string">"src=/home/test/xxx dest=/home/ flat=yes"</span>
+解释：将远程xxx文件拉取到本地home目录下，目录结构会是dest路径+远程主机名+src，假如远程主机名为develop，拉取的xxx文件在本地的/home/develop/home/test目录。如果需要指定拉取到某目录下 加个flat<span class="token operator">=</span>yes的参数即可。
+</code></pre>
+<p>14、unarchive——解压文件</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible develop -m unarchive -a <span class="token string">"src=/root/apache-tomcat-7.0.85.tar.gz dest=/home/test owner=alad group=alad mode=755"</span>
+$ ansible develop -m unarchive -a <span class="token string">"src=/home/alad/ansible/elk/logstash-6.2.4.tar.gz dest=/home/test remote_src=yes"</span>
+$ ansible develop -m unarchive -a <span class="token string">"src=http://mirrors.linuxeye.com/oneinstack-full.tar.gz dest=/home/test remote_src=yes"</span>
+解释：将本地的tomcat压缩包解压到远程主机dest目录下，并修改其权限和所有者/组，remote_src<span class="token operator">=</span>yes 表示解压远程主机已有的压缩包，src为url表示下载此包到远程主机dest目录进行解压缩后，并删除压缩包源文件
+</code></pre>
+<p>15、command和shell——linux命令模块</p>
+<pre><code>shell和command的区别：shell模块可以特殊字符，而command是不支持
+简单说：command运行的命令中无法使用变量，管道。如果需要使用管道、变量，请使用raw模块,或者shell模块。
+</code></pre><p>16、setup——获取主机信息</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible develop -m setup
+$ ansible develop -m setup -a <span class="token string">'filter=ansible_*_mb'</span>
+解释：1、显示系统所有信息
+      2、通常配合filter进行过滤来获取主机信息，（例子是显示内存信息）
+</code></pre>
+<p>17、assemble——配置文件组装发送到远程主机</p>
+<pre class=" language-bash"><code class="language-bash">$ ansible <span class="token function">test</span> -m assemble -a <span class="token string">"src=/root/test dest=/root/ansible/fileone mode=777 remote_src=False delimiter='========'"</span>
+解释：将src test目录下所有文件（不含test子目录内容）的内容发送到dest fileone文件中，remote_src默认为Ture表示src为远程主机上的路径，False为ansible控制端的路径，delimiter为文件之间内容分隔符。
+</code></pre>
+<h3 id="Playbook语法和结构"><a href="#Playbook语法和结构" class="headerlink" title="Playbook语法和结构"></a>Playbook语法和结构</h3><p>Playbook需要7个文件夹，如ansible安装nginx，则需要在/etc/ansible/roles目录下建立以下文件夹。<br>mkdir -pv nginx/{default,tasks,vars,meta,handlers,templates,files}<br>对于Ansible，几乎每个YAML文件都以一个列表开始。列表中的每个项目都是键/值对列表，通常称为“散列”或“字典”。所以，我们需要知道如何在YAML中编写列表和字典。<br>YAML还有一个小小的怪癖。所有YAML文件（无论它们是否与Ansible相关联）都可以选择开始—和结束—.。这是YAML格式的一部分，并指示文档的开始和结束。<br>列表中的所有成员都是以相同的缩进级别开头的行（短划线和空格）：”- “</p>
+<p>例如：</p>
+<pre class=" language-yaml"><code class="language-yaml">    <span class="token punctuation">---</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">hosts</span><span class="token punctuation">:</span> test
+      <span class="token key atrule">remote_user</span><span class="token punctuation">:</span> root
+      <span class="token key atrule">vars</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">bsh</span><span class="token punctuation">:</span> b.sh
+        <span class="token punctuation">-</span> <span class="token key atrule">httprpm</span><span class="token punctuation">:</span> httpd
+      <span class="token key atrule">task</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> install httpd
+          <span class="token key atrule">yum</span><span class="token punctuation">:</span> name=<span class="token punctuation">{</span><span class="token punctuation">{</span> httprpm <span class="token punctuation">}</span><span class="token punctuation">}</span> state=present”
+          <span class="token key atrule">tags</span><span class="token punctuation">:</span> install_httpd
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> copy b.sh
+          <span class="token key atrule">copy</span><span class="token punctuation">:</span> src=/root/<span class="token punctuation">{</span><span class="token punctuation">{</span> bsh <span class="token punctuation">}</span><span class="token punctuation">}</span> dest=/root/ owner=ala group=ala mode=0644
+          <span class="token key atrule">notify</span><span class="token punctuation">:</span>
+            <span class="token punctuation">-</span> reload httpd
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> start httpd
+          <span class="token key atrule">service</span><span class="token punctuation">:</span> name=httpd state=started enabled=yes
+      <span class="token key atrule">handlers</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> reload httpd
+          <span class="token key atrule">service</span><span class="token punctuation">:</span> name=httpd state=reloaded
+</code></pre>
+<p>第一次的话都会运行，后边如果copy的文件内容发生改变就会触发 notify ，然后会直接执行 handlers 的内容（ 这里notify后边的事件就都不会执行了 ）。</p>
+<h3 id="template模块jinja2语法"><a href="#template模块jinja2语法" class="headerlink" title="template模块jinja2语法"></a>template模块jinja2语法</h3><ul>
+<li><strong>template:使用了Jinjia2格式作为文件模版，进行文档内变量的替换的模块。相当于copy，将jinja2的文件模板理解并执行，转化为各个主机间的对应值。</strong><br>如：template: src=httpd.conf.j2 dest=/etc/httpd/conf/httpd.conf</li>
+</ul>
+<blockquote>
+<p>http.conf.j2必须是完整的文件内容，因为这是覆盖操作，而非只选择性远程主机替换变量，dest要指定文件名，如果是目录就相当于copy了http.conf.j2到远程目录下，不是我们要的结果。</p>
+</blockquote>
+<ul>
+<li><strong>when语句：在tasks中使用，Jinja2的语法格式</strong></li>
+</ul>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> start nginx service
+ <span class="token key atrule">shell</span><span class="token punctuation">:</span> systemctl start nginx.service
+ <span class="token key atrule">when</span><span class="token punctuation">:</span> ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
+</code></pre>
+<p>当系统为 centos 7的时候执行sysctemctl命令，否则不执行</p>
+<ul>
+<li><strong>循环：迭代，需要重复执行的任务</strong></li>
+</ul>
+<blockquote>
+<p>变量名为item，而with_item为要迭代的元素。如果某个任务出错，后面不执行</p>
+</blockquote>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> install packages
+ <span class="token key atrule">yum</span><span class="token punctuation">:</span> name=<span class="token punctuation">{</span><span class="token punctuation">{</span> item <span class="token punctuation">}</span><span class="token punctuation">}</span> state=latest
+ <span class="token key atrule">with_items</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> httpd
+    <span class="token punctuation">-</span> php
+</code></pre>
+<blockquote>
+<p>这是基于字符串列表给出元素示例 </p>
+</blockquote>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> create users
+    <span class="token key atrule">user</span><span class="token punctuation">:</span> name=<span class="token punctuation">{</span><span class="token punctuation">{</span> item.name <span class="token punctuation">}</span><span class="token punctuation">}</span> group=<span class="token punctuation">{</span><span class="token punctuation">{</span> item.group <span class="token punctuation">}</span><span class="token punctuation">}</span> state=present
+    <span class="token key atrule">with_items</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token punctuation">{</span><span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">'userx1'</span><span class="token punctuation">,</span> <span class="token key atrule">group</span><span class="token punctuation">:</span> <span class="token string">'groupx1'</span><span class="token punctuation">}</span>
+    <span class="token punctuation">-</span> <span class="token punctuation">{</span><span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">'userx2'</span><span class="token punctuation">,</span> <span class="token key atrule">group</span><span class="token punctuation">:</span> <span class="token string">'groupx2'</span><span class="token punctuation">}</span>
+</code></pre>
+<p>这是基于字典列表给元素示例：item.name  . 后边的表示键。</p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="freeitsnocrime.github.io" class="b-link-green">freelance.caveman</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/03/22/ansible-module/" class="b-link-green">Ansible 常用模块指令</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments input[type=text],
+    #vcomments input[type=email],
+    #vcomments input[type=url],
+    #vcomments textarea {
+        box-sizing: border-box;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'AqMofNcygefMiG0Lr0HCs9LB-gzGzoHsz',
+        appKey: 'fvSWWfLDRCfeQsQUNO03RIJn',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'en',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，一起快活啊。。'
+    });
+</script>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2018/03/25/aliyun-ecs-mail/">
+                    <div class="card-image">
+                        
+                        <img src="/images/bar/aliyun.jpg" class="responsive-img" alt="阿里云ECS用465端口发邮件">
+                        
+                        <span class="card-title">阿里云ECS用465端口发邮件</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">原由大家可能都知道在阿里云购买的ECS云主机是不能直接通过25号端口发邮件的，因为阿里云底层对25号端口做了屏蔽。所以例如我们需要做监控、报告等邮件通知行为时，只能修改默认的25号端口。下面我们就开始如何用465端口来发送邮件。
+请求数字证</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/aliyun/" target="_blank">
+                        <span class="chip bg-color">aliyun</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/01/23/nginx-variable/">
+                    <div class="card-image">
+                        
+                        <img src="/images/bar/nginx-variable.jpg" class="responsive-img" alt="Nginx内置变量">
+                        
+                        <span class="card-title">Nginx内置变量</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Nginx 内置变量解释为了方便配置和使用nginx，nginx核心模块ngx_http_core_module自带有许多内置的人性化变量，这极大的方便了系统管理员对nginx维护和管理。下面我们详解注解内置变量的含义（当然，如果你懂点HT</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/web/" class="post-category" target="_blank">
+                                    web
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/nginx/" target="_blank">
+                        <span class="chip bg-color">nginx</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://www.ipyker.com/" target="_blank">Pyker</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">34.5k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+			<a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备19028706号</a>
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/ipyker" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:pyker@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123435796" class="tooltipped" data-tooltip="QQ联系我: 123435796" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

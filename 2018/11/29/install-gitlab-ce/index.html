@@ -1,0 +1,1222 @@
+<!DOCTYPE HTML>
+<html lang="default">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Gitlab-CE社区版安装, freelance.caveman">
+    <meta name="description" content="常见的git环境有git web版和gitolite版本，gitolite权限控制强大，但功能不完善，而git web(gitlab)虽然权限没有像gitolite分的那么细，但是功能异常强大，不仅支持SSH KEY、web密码方式还有CI">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Gitlab-CE社区版安装 | freelance.caveman</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">freelance.caveman</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">freelance.caveman</div>
+        <div class="logo-desc">
+            
+            freeitsnocrime
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/bar/gitlab.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Gitlab-CE社区版安装
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/git/" target="_blank">
+                                <span class="chip bg-color">git</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/CI-CD/" class="post-category" target="_blank">
+                                CI/CD
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-11-29
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        1.4k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        6 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>常见的git环境有git web版和gitolite版本，gitolite权限控制强大，但功能不完善，而git web(gitlab)虽然权限没有像gitolite分的那么细，但是功能异常强大，不仅支持SSH KEY、web密码方式还有CI/CD，PIPELINE功能。所以下文将介绍如何在公司内网搭建私有的gitlab环境。</p>
+<blockquote>
+<p>GitLab官网强烈建议安装Omnibus软件包，因为它安装更快，更易于升级，并且包含增强其他方法所没有的可靠性的功能。我们还强烈建议<code>至少4GB</code>的可用内存` 来运行GitLab。</p>
+</blockquote>
+<h2 id="GitLab的安装"><a href="#GitLab的安装" class="headerlink" title="GitLab的安装"></a>GitLab的安装</h2><h3 id="Omnibus方式安装"><a href="#Omnibus方式安装" class="headerlink" title="Omnibus方式安装"></a>Omnibus方式安装</h3><h5 id="安装并配置必要的依赖项"><a href="#安装并配置必要的依赖项" class="headerlink" title="安装并配置必要的依赖项"></a>安装并配置必要的依赖项</h5><p>在CentOS 7（和RedHat / Oracle / Scientific Linux 7）上，执行以下命令。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> -y curl policycoreutils-python openssh-server
+</code></pre>
+<h5 id="更新GitLab国内yum源"><a href="#更新GitLab国内yum源" class="headerlink" title="更新GitLab国内yum源"></a>更新GitLab国内yum源</h5><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cat</span> <span class="token operator">></span> /etc/yum.repos.d/gitlab-ce.repo <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+[gitlab-ce]
+name=Gitlab CE Repository
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el<span class="token variable">$releasever</span>/
+gpgcheck=0
+enabled=1 
+EOF</span>
+</code></pre>
+<h5 id="安装GitLab-CE包"><a href="#安装GitLab-CE包" class="headerlink" title="安装GitLab-CE包"></a>安装GitLab-CE包</h5><pre class=" language-bash"><code class="language-bash">$ yum makecache
+$ yum <span class="token function">install</span> gitlab-ce -y
+</code></pre>
+<h5 id="配置GitLab-CE域名和邮件通知"><a href="#配置GitLab-CE域名和邮件通知" class="headerlink" title="配置GitLab-CE域名和邮件通知"></a>配置GitLab-CE域名和邮件通知</h5><p>配置文件为<code>/etc/gitlab/gitlab.rb</code> </p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#修改external_url 为你gitlab的访问域名</span>
+$ vim /etc/gitlab/gitlab.rb
+external_url <span class="token string">'http://git.ipyker.com'</span>
+
+<span class="token comment" spellcheck="true">#添加gitlab邮件通知配置（大约在/etc/gitlab/gitlab.rb文件的517行）</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_enable'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span> 
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_address'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"smtp.ipyker.com"</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_port'</span><span class="token punctuation">]</span> <span class="token operator">=</span> 465
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_user_name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"gitlab@ipyker.com"</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_password'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"mypasswd"</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_authentication'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"login"</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_enable_starttls_auto'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span> 
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_tls'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span> 
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'gitlab_email_from'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'gitlab@ipyker.com'</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_domain'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"ipyker.com"</span>
+</code></pre>
+<blockquote>
+<p><strong>GitLab安装完后，工作目录默认为：/var/opt/gitlab、/opt/gitlab，配置文件目录为：/etc/gitlab</strong></p>
+</blockquote>
+<h4 id="GitLab管理"><a href="#GitLab管理" class="headerlink" title="GitLab管理"></a>GitLab管理</h4><h5 id="重载配置信息"><a href="#重载配置信息" class="headerlink" title="重载配置信息"></a>重载配置信息</h5><pre><code>$ gitlab-ctl reconfigure
+</code></pre><h5 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h5><pre><code>$ gitlab-ctl start
+</code></pre><h5 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h5><pre><code>$ gitlab-ctl stop
+</code></pre><h5 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h5><pre><code>$ gitlab-ctl restart
+</code></pre><h4 id="登陆"><a href="#登陆" class="headerlink" title="登陆"></a>登陆</h4><p>第一次用域名登录gitlab，需要为root用户修改密码，root用户也是gitlab的超级管理员，gitlab也支持修改中文界面，如下图所示<br><img src="/images/pic/welcome-gitlab.png" alt></p>
+<p><img src="/images/pic/language.png" alt></p>
+<p><strong>更多关于gitlab配置信息参数，请参考官网<a href="https://docs.gitlab.com/omnibus/settings/README.html" target="_blank" rel="noopener">GitLab配置文件</a></strong></p>
+<hr>
+<h3 id="Docker方式安装"><a href="#Docker方式安装" class="headerlink" title="Docker方式安装"></a>Docker方式安装</h3><h4 id="GitLab-docker-镜像"><a href="#GitLab-docker-镜像" class="headerlink" title="GitLab docker 镜像"></a>GitLab docker 镜像</h4><p>gitlab-ce镜像存放在<a href="https://hub.docker.com/r/gitlab/gitlab-ce/" target="_blank" rel="noopener">docker官方仓库</a>中。</p>
+<p>GitLab Docker镜像是GitLab的单个镜像，在单个容器上运行所有必要的服务。<br>在以下示例中，我们使用GitLab CE的镜像。如果要使用最新的RC映像，请使用<code>gitlab/gitlab-ce:rc</code> 用于GitLab CE<br>GitLab Docker镜像可以多种方式运行：</p>
+<ul>
+<li><a href="https://docs.gitlab.com/omnibus/docker/#run-the-image" target="_blank" rel="noopener">在Docker Engine中运行映像</a></li>
+<li><a href="https://docs.gitlab.com/omnibus/docker/#install-gitlab-into-a-cluster" target="_blank" rel="noopener">将GitLab安装到群集中</a></li>
+<li><a href="https://docs.gitlab.com/omnibus/docker/#install-gitlab-using-docker-compose" target="_blank" rel="noopener">使用docker-compose安装GitLab</a></li>
+</ul>
+<p><strong>本文档以第一种方式在docker中运行，如你需要高可用可以用第二种，甚至是通过kubenetes deplyment部署pod方式安装。</strong></p>
+<h4 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h4><p>需要先安装docker，请参考<a href="https://www.ipyker.com/2019/03/21/centos7-install-docker-ce/" target="_blank" rel="noopener">docker-ce安装</a></p>
+<h4 id="运行gitlab-ce容器"><a href="#运行gitlab-ce容器" class="headerlink" title="运行gitlab-ce容器"></a>运行gitlab-ce容器</h4><pre class=" language-bash"><code class="language-bash">$ docker run -d \
+  --hostname gitlab.example.com \
+  --publish 443:443 --publish 80:80 --publish 22:22 \
+  --name gitlab \
+  --restart always \
+  --volume /srv/gitlab/config:/etc/gitlab \
+  --volume /srv/gitlab/logs:/var/log/gitlab \
+  --volume /srv/gitlab/data:/var/opt/gitlab \
+  gitlab/gitlab-ce:latest
+</code></pre>
+<blockquote>
+<p><code>docker run</code> 命令将直接拉取镜像和运行容器，相当于运行docker pull和docker start两条命令。gitlab-ce容器将制定域名，开放的端口，以及容器挂载本地的文件系统，所有GitLab数据都将存储为子目录 /srv/gitlab/。restart系统重启后，容器将自动运行。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>宿主目录</th>
+<th>docker目录</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/srv/gitlab/data</td>
+<td>/var/opt/gitlab</td>
+<td>用于存储应用数据</td>
+</tr>
+<tr>
+<td>/srv/gitlab/logs</td>
+<td>/var/log/gitlab</td>
+<td>用于存储日志</td>
+</tr>
+<tr>
+<td>/srv/gitlab/config</td>
+<td>/etc/gitlab</td>
+<td>用于存储GitLab配置文件</td>
+</tr>
+</tbody>
+</table>
+<h4 id="配置girlab-ce"><a href="#配置girlab-ce" class="headerlink" title="配置girlab-ce"></a>配置girlab-ce</h4><p>此容器使用官方的Omnibus GitLab软件包，因此所有配置都在docker唯一的配置文件中完成/etc/gitlab/gitlab.rb，也可以通过修改挂载卷文件来完成。</p>
+<p>要访问GitLab的配置文件，您可以在正在运行的容器的上下文中启动shell会话。这将允许您浏览所有目录并使用您喜欢的文本编辑器：</p>
+<pre class=" language-bash"><code class="language-bash">$ docker <span class="token function">exec</span> -it gitlab /bin/bash
+</code></pre>
+<p>打开后，请<code>/etc/gitlab/gitlab.rb</code> 确保将指针设置<code>external_url</code> 为有效的URL。</p>
+<p>此外您可以通过将环境变量添加<code>GITLAB_OMNIBUS_CONFIG</code> 到docker run命令来预配置GitLab Docker映像。此变量可以包含任何gitlab.rb设置，并在加载容器gitlab.rb文件之前进行评估。这样，您可以轻松配置GitLab的外部URL，从<a href="https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/files/gitlab-config-template/gitlab.rb.template" target="_blank" rel="noopener">Omnibus GitLab</a>模板进行任何数据库配置或任何其他选项 。<br>注意：包含的设置<code>GITLAB_OMNIBUS_CONFIG</code> 不会写入gitlab.rb配置文件，而是在加载时进行评估。<br>这是一个设置外部URL并在启动容器时启用LFS的示例：</p>
+<pre class=" language-bash"><code class="language-bash">$ docker run -d \
+  --hostname gitlab.example.com \
+  --env GITLAB_OMNIBUS_CONFIG<span class="token operator">=</span><span class="token string">"external_url 'http://my.domain.com/'; gitlab_rails['lfs_enabled'] = true;"</span> \
+  --publish 443:443 --publish 80:80 --publish 22:22 \
+  --name gitlab \
+  --restart always \
+  --volume /srv/gitlab/config:/etc/gitlab \
+  --volume /srv/gitlab/logs:/var/log/gitlab \
+  --volume /srv/gitlab/data:/var/opt/gitlab \
+  gitlab/gitlab-ce:latest
+</code></pre>
+<p><strong>要从GitLab接收电子邮件，您必须配置 SMTP设置，因为GitLab Docker映像没有安装SMTP服务器。默认也为HTTP，还可以启动https访问。</strong></p>
+<h4 id="重启gitlab-ce"><a href="#重启gitlab-ce" class="headerlink" title="重启gitlab-ce"></a>重启gitlab-ce</h4><p>完成所需的所有更改后，需要重新启动容器才能重新配置GitLab：</p>
+<pre class=" language-bash"><code class="language-bash">$ docker restart gitlab
+</code></pre>
+<h4 id="手动配置HTTPS"><a href="#手动配置HTTPS" class="headerlink" title="手动配置HTTPS"></a>手动配置HTTPS</h4><p>默认情况下，omnibus-gitlab不使用HTTPS。如果要为gitlab.example.com启用HTTPS，请将以下语句添加到<code>/etc/gitlab/gitlab.rb</code> ：</p>
+<pre><code>external_url &quot;https://gitlab.example.com&quot;
+</code></pre><p>因为在我们的例子中，主机名是“gitlab.example.com”，所以创建<code>/etc/gitlab/ssl</code> 目录并在那里复制密钥和证书。</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">mkdir</span> -p /etc/gitlab/ssl
+$ <span class="token function">sudo</span> <span class="token function">chmod</span> 700 /etc/gitlab/ssl
+$ <span class="token function">sudo</span> <span class="token function">cp</span> gitlab.example.com.key gitlab.example.com.crt /etc/gitlab/ssl/
+</code></pre>
+<p>重新加载配置，当重新配置完成时，您的GitLab实例应该可以访问<a href="https://gitlab.example.com。" target="_blank" rel="noopener">https://gitlab.example.com。</a></p>
+<pre class=" language-bash"><code class="language-bash">$ gitlab-ctl reconfigure
+</code></pre>
+<blockquote>
+<p>如果certificate.key文件有设置密码，Nginx在<code>sudo gitlab-ctl reconfigure</code> 执行时不会要求输入密码。在这种情况下，Omnibus GitLab将无声地失败，没有错误消息。要从密钥中删除密码，请使用以下命令： <code>openssl rsa -in certificate_before.key -out certificate_after.key</code> 。</p>
+</blockquote>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                    </span>
+                    <a href="freeitsnocrime.github.io" class="b-link-green">freelance.caveman</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/11/29/install-gitlab-ce/" class="b-link-green">Gitlab-CE社区版安装</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments input[type=text],
+    #vcomments input[type=email],
+    #vcomments input[type=url],
+    #vcomments textarea {
+        box-sizing: border-box;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'AqMofNcygefMiG0Lr0HCs9LB-gzGzoHsz',
+        appKey: 'fvSWWfLDRCfeQsQUNO03RIJn',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'en',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，一起快活啊。。'
+    });
+</script>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2018/12/14/tomcat-apr/">
+                    <div class="card-image">
+                        
+                        <img src="/images/bar/tomcat.jpg" class="responsive-img" alt="Tomcat8配置APR模式">
+                        
+                        <span class="card-title">Tomcat8配置APR模式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">tomcat三种模式Tomcat Connector运行有三种模式：
+
+bio默认的模式,同步阻塞，性能非常低下,没有经过任何优化处理和支持.
+
+nio同步非阻塞，利用java的异步io护理技术,noblocking IO技术,想运行在该模</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-14
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/web/" class="post-category" target="_blank">
+                                    web
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/tomcat/" target="_blank">
+                        <span class="chip bg-color">tomcat</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/10/22/mysql-status/">
+                    <div class="card-image">
+                        
+                        <img src="/images/bar/mysql.jpg" class="responsive-img" alt="Mysql状态信息查询">
+                        
+                        <span class="card-title">Mysql状态信息查询</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Mysql在安装运行后，其性能并不一定为实际需要的性能，因此我们常常会在mysql运行一段时间后进行mysql的性能状态查询来了解mysql服务器的性能指标，从而来优化mysql。
+查看mysql性能状态命令查看mysql全局状态mysql</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/SQL/" class="post-category" target="_blank">
+                                    SQL
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/mysql/" target="_blank">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://www.ipyker.com/" target="_blank">Pyker</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">34.5k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+			<a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备19028706号</a>
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/ipyker" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:pyker@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123435796" class="tooltipped" data-tooltip="QQ联系我: 123435796" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
